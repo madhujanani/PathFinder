@@ -37,7 +37,7 @@ public class PassengerDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int pnr;
+	private String pnr;
 
 	private Date dateOfBooking;
 
