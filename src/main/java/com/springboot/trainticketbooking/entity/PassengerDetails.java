@@ -1,13 +1,12 @@
 package com.springboot.trainticketbooking.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,14 +34,12 @@ public class PassengerDetails {
 
 	private String trainNo;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String pnr;
+	private Random pnr = new Random();
 
-	private Date dateOfBooking;
+	private LocalDate dateOfBooking = java.time.LocalDate.now();
 
-	private String bookingStatus;
+	private String bookingStatus = new Random().nextBoolean() ? "confirmed" : "waiting";
 
-	private long ticketFair;
+	private double ticketFair = Math.floor(Math.random() * 31) + 50;
 
 }
