@@ -1,8 +1,8 @@
-package com.springboot.trainticketbooking.service;
+package com.mars.trainticketbooking.springboot.service;
 
 import java.util.List;
 
-import com.springboot.trainticketbooking.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
 
 /**
  * @authors madhu, tom, brian, ankita, sai

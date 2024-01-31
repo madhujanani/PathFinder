@@ -1,8 +1,8 @@
-package com.springboot.trainticketbooking.repository;
+package com.mars.trainticketbooking.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.springboot.trainticketbooking.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
 
 /**
  * @author Madhu

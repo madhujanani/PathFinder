@@ -1,4 +1,4 @@
-package com.springboot.trainticketbooking.entity;
+package com.mars.trainticketbooking.springboot.entity;
 
 import java.time.LocalDate;
 import java.util.Date;

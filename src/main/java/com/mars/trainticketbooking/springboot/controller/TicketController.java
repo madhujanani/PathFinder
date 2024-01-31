@@ -1,4 +1,4 @@
-package com.springboot.trainticketbooking.controller;
+package com.mars.trainticketbooking.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.trainticketbooking.entity.PassengerDetails;
-import com.springboot.trainticketbooking.service.TicketService;
+import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.service.TicketService;
 
 /**
  * @author Madhu
