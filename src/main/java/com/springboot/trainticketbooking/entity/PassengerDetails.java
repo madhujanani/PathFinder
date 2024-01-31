@@ -3,43 +3,69 @@ package com.springboot.trainticketbooking.entity;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Random;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author madhu
- *
+ * @author Madhu, Tom
+ * 
  */
 
 @NoArgsConstructor
 @Entity
 @Data
-@AllArgsConstructor
 public class PassengerDetails {
 
-	private String passengerName;
-	private String fromStation;
-	private String toStation;
+    @Id
+    private String pnr = UUID
+            .randomUUID()
+            .toString()
+            .replace("-", "")
+            .toUpperCase()
+            .substring(0,7);
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-	private Date dateOfTravel;
+    private String passengerName;
+    private String fromStation;
+    private String toStation;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-	private Date updatedTicketDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date dateOfTravel;
 
-	private String trainNo;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date updatedTicketDate;
 
-	private Random pnr = new Random();
+    private String trainNo;
 
-	private LocalDate dateOfBooking = java.time.LocalDate.now();
+    private LocalDate dateOfBooking = java.time.LocalDate.now();
 
-	private String bookingStatus = new Random().nextBoolean() ? "confirmed" : "waiting";
+    private String bookingStatus = new Random().nextBoolean() ? "confirmed" : "waiting";
 
-	private double ticketFair = Math.floor(Math.random() * 31) + 50;
+    private double ticketFare = Math.floor(Math.random() * 31) + 50;
+
+    // We need a constructor that can requires only the fields present in a POST or
+    // PUT request... an AllArgsConstructor won't work
+    /**
+     * @param passengerName
+     * @param fromStation
+     * @param toStation
+     * @param dateOfTravel
+     * @param trainNo
+     */
+    public PassengerDetails(String passengerName, String fromStation, 
+            String toStation, Date dateOfTravel, String trainNo) 
+    {
+        super();
+        this.passengerName = passengerName;
+        this.fromStation = fromStation;
+        this.toStation = toStation;
+        this.dateOfTravel = dateOfTravel;
+        this.trainNo = trainNo;
+    }
 
 }

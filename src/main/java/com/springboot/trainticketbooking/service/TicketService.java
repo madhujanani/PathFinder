@@ -4,9 +4,22 @@ import java.util.List;
 
 import com.springboot.trainticketbooking.entity.PassengerDetails;
 
+/**
+ * @authors madhu, tom, brian, ankita, sai
+ */
 public interface TicketService {
-	List<PassengerDetails> getpassengers();
+    /**
+     * @return List
+     */
+    List<PassengerDetails> getpassengers();
 
-	// create other meothods too
+    /**
+     * Modfies one ticket, based on id (pnr)
+     * @author Tom
+     * @param ticket
+     * @param pnr
+     * @return PassengerDetails
+     */
+    PassengerDetails putTicketByPnr(PassengerDetails ticket, String pnr);
 
 }
