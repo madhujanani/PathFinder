@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,11 +20,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Data
-@AllArgsConstructor
 public class PassengerDetails {
 
     @Id
-    private String pnr = makeId();
+    private String pnr = UUID
+            .randomUUID()
+            .toString()
+            .replace("-", "")
+            .toUpperCase()
+            .substring(0,7);
 
     private String passengerName;
     private String fromStation;
@@ -43,10 +46,26 @@ public class PassengerDetails {
 
     private String bookingStatus = new Random().nextBoolean() ? "confirmed" : "waiting";
 
-    private double ticketFair = Math.floor(Math.random() * 31) + 50;
+    private double ticketFare = Math.floor(Math.random() * 31) + 50;
 
-    private String makeId() {
-        return UUID.randomUUID().toString().replace("-", "").toUpperCase().substring(0, 7);
+    // We need a constructor that can requires only the fields present in a POST or
+    // PUT request... an AllArgsConstructor won't work
+    /**
+     * @param passengerName
+     * @param fromStation
+     * @param toStation
+     * @param dateOfTravel
+     * @param trainNo
+     */
+    public PassengerDetails(String passengerName, String fromStation, 
+            String toStation, Date dateOfTravel, String trainNo) 
+    {
+        super();
+        this.passengerName = passengerName;
+        this.fromStation = fromStation;
+        this.toStation = toStation;
+        this.dateOfTravel = dateOfTravel;
+        this.trainNo = trainNo;
     }
 
 }
