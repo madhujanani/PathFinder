@@ -1,4 +1,4 @@
-package com.springboot.trainticketbooking.TrainTicketBooking;
+package com.springboot.trainticketbooking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
