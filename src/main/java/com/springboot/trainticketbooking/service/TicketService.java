@@ -13,8 +13,9 @@ public interface TicketService {
      */
     List<PassengerDetails> getpassengers();
 
-    // create other methods too
     /**
+     * Modfies one ticket, based on id (pnr)
+     * @author Tom
      * @param ticket
      * @param pnr
      * @return PassengerDetails

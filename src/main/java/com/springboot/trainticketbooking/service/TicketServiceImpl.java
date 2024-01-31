@@ -3,13 +3,15 @@ package com.springboot.trainticketbooking.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.springboot.trainticketbooking.entity.PassengerDetails;
 import com.springboot.trainticketbooking.repository.PassengerDetailsRepository;
 
 /**
- * @author Madhu, Tom
+ * @author Madhu
  */
+@Service
 public class TicketServiceImpl implements TicketService {
 
     @Autowired
@@ -20,6 +22,9 @@ public class TicketServiceImpl implements TicketService {
         return repository.findAll();
     }
 
+    /**
+     * @author Tom
+     */
     @Override
     public PassengerDetails putTicketByPnr(PassengerDetails ticket, String pnr) {
         PassengerDetails ticketToUpdate = repository.getReferenceById(pnr);
@@ -30,9 +35,8 @@ public class TicketServiceImpl implements TicketService {
         ticketToUpdate.setUpdatedTicketDate(ticket.getUpdatedTicketDate());
         ticketToUpdate.setTrainNo(ticket.getTrainNo());
 
-        ticketToUpdate.setTicketFair(ticketToUpdate.getTicketFair() * 1.5);
+        ticketToUpdate.setTicketFare(ticketToUpdate.getTicketFare() * 1.5);
 
         return repository.save(ticketToUpdate);
     }
-
 }
