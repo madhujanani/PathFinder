@@ -1,12 +1,12 @@
-package com.springboot.trainticketbooking.service;
+package com.mars.trainticketbooking.springboot.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springboot.trainticketbooking.entity.PassengerDetails;
-import com.springboot.trainticketbooking.repository.PassengerDetailsRepository;
+import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.repository.PassengerDetailsRepository;
 
 /**
  * @author Madhu
