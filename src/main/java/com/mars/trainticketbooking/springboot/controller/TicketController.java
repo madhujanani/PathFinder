@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.entity.Ticket;
 import com.mars.trainticketbooking.springboot.service.TicketService;
 
 /**
@@ -33,10 +33,10 @@ public class TicketController {
      * @return ResponseEntity
      */
     @PutMapping("/{pnr}")
-    public ResponseEntity<PassengerDetails> putTicket(
-            @RequestBody PassengerDetails ticket, @PathVariable(name = "pnr") String pnr)
+    public ResponseEntity<Ticket> putTicket(
+            @RequestBody Ticket ticket, @PathVariable(name = "pnr") String pnr)
     {
-        PassengerDetails updatedTicket = service.putTicketByPnr(ticket, pnr);
+        Ticket updatedTicket = service.putTicketByPnr(ticket, pnr);
         return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
     }
 

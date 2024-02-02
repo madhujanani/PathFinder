@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.entity.Ticket;
 import com.mars.trainticketbooking.springboot.repository.PassengerDetailsRepository;
 
 /**
@@ -18,7 +18,7 @@ public class TicketServiceImpl implements TicketService {
     PassengerDetailsRepository repository;
 
     @Override
-    public List<PassengerDetails> getpassengers() {
+    public List<Ticket> getpassengers() {
         return repository.findAll();
     }
 
@@ -26,8 +26,8 @@ public class TicketServiceImpl implements TicketService {
      * @author Tom
      */
     @Override
-    public PassengerDetails putTicketByPnr(PassengerDetails ticket, String pnr) {
-        PassengerDetails ticketToUpdate = repository.getReferenceById(pnr);
+    public Ticket putTicketByPnr(Ticket ticket, String pnr) {
+        Ticket ticketToUpdate = repository.getReferenceById(pnr);
         ticketToUpdate.setPassengerName(ticket.getPassengerName());
         ticketToUpdate.setToStation(ticket.getToStation());
         ticketToUpdate.setFromStation(ticket.getFromStation());
