@@ -7,10 +7,10 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springboot.trainingticketbooking.repository.TicketRepository;
 import com.springboot.trainticketbooking.constant.BookingStatus;
 import com.springboot.trainticketbooking.entity.Ticket;
 import com.springboot.trainticketbooking.model.PassengerDetails;
+import com.springboot.trainticketbooking.repository.TicketRepository;
 
 /**
  * @author Madhu
