@@ -3,6 +3,7 @@ package com.mars.trainticketbooking.springboot.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -48,5 +49,18 @@ public class TicketController {
         Ticket updatedTicket = service.putTicketByPnr(ticket, pnr);
         return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
     }
+    
+    /**
+	 * Cancel one ticket, based on (pnr)
+	 * 
+	 * @author Ankita
+	 * @param pnr
+	 */
+	@DeleteMapping("cancelticket/{pnr}")
+	public ResponseEntity<Ticket> ticketCancellation(@PathVariable String pnr) {
+		service.cancelTicket(pnr);
+		return new ResponseEntity<Ticket>(HttpStatus.OK);
+	}
+
 
 }
