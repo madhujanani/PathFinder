@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Data
-public class PassengerDetails {
+public class Ticket {
 
     @Id
     private String pnr = UUID
@@ -57,7 +57,7 @@ public class PassengerDetails {
      * @param dateOfTravel
      * @param trainNo
      */
-    public PassengerDetails(String passengerName, String fromStation, 
+    public Ticket(String passengerName, String fromStation, 
             String toStation, Date dateOfTravel, String trainNo) 
     {
         super();

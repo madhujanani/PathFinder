@@ -2,7 +2,7 @@ package com.mars.trainticketbooking.springboot.service;
 
 import java.util.List;
 
-import com.mars.trainticketbooking.springboot.entity.PassengerDetails;
+import com.mars.trainticketbooking.springboot.entity.Ticket;
 
 /**
  * @authors madhu, tom, brian, ankita, sai
@@ -11,7 +11,7 @@ public interface TicketService {
     /**
      * @return List
      */
-    List<PassengerDetails> getpassengers();
+    List<Ticket> getpassengers();
 
     /**
      * Modfies one ticket, based on id (pnr)
@@ -20,6 +20,6 @@ public interface TicketService {
      * @param pnr
      * @return PassengerDetails
      */
-    PassengerDetails putTicketByPnr(PassengerDetails ticket, String pnr);
+    Ticket putTicketByPnr(Ticket ticket, String pnr);
 
 }
