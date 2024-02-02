@@ -21,15 +21,22 @@ import com.springboot.trainticketbooking.model.PassengerDetails;
 	@Service
 	public class TicketServiceImpl implements TicketService {
 	 
+	   // @Autowired
+	 private TicketRepository repository;
+	 
 	    @Autowired
-	    TicketRepository repository;
-	    /**
+	    public TicketServiceImpl(TicketRepository repository) {
+		super();
+		this.repository = repository;
+	}
+
+
+		/**
 	     * @author Sai
 	     */
 
 	 
-		//public PassengerDetails bookTicket(String passengerName, String fromStation, String toStation, Date dateOfTravel,
-		//	String trainNo) {
+		
 	    	@Override
 			public Ticket bookTicket(PassengerDetails passengerdetails) {
 		             //generate the random booking status to the train ticket   

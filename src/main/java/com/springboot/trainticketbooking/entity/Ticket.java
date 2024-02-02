@@ -1,11 +1,10 @@
 package com.springboot.trainticketbooking.entity;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.UUID;
- 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.springboot.trainticketbooking.constant.BookingStatus;
- 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -25,12 +24,8 @@ import lombok.NoArgsConstructor;
 public class Ticket {
  
     @Id
-    private String pnr = UUID
-            .randomUUID()
-            .toString()
-            .replace("-", "")
-            .toUpperCase()
-            .substring(0,7);
+    private String pnr;
+            
  
     private String passengerName;
     private String fromStation;
