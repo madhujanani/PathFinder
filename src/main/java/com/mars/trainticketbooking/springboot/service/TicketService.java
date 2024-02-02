@@ -3,6 +3,7 @@ package com.mars.trainticketbooking.springboot.service;
 import java.util.List;
 
 import com.mars.trainticketbooking.springboot.entity.Ticket;
+import com.mars.trainticketbooking.springboot.model.PassengerDetails;
 
 /**
  * @authors madhu, tom, brian, ankita, sai
@@ -21,5 +22,6 @@ public interface TicketService {
      * @return PassengerDetails
      */
     Ticket putTicketByPnr(Ticket ticket, String pnr);
+	Ticket bookTicket(PassengerDetails passengerdetails);
 
 }
