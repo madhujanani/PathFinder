@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mars.trainticketbooking.springboot.entity.Ticket;
+import com.mars.trainticketbooking.springboot.model.PassengerDetails;
 import com.mars.trainticketbooking.springboot.service.TicketService;
 
 /**
@@ -20,7 +22,14 @@ import com.mars.trainticketbooking.springboot.service.TicketService;
 public class TicketController {
 
     @Autowired
-    TicketService service;
+    TicketService service;   
+    
+    
+    @PostMapping("/bookticket")
+    public ResponseEntity<Ticket> bookticket( @RequestBody PassengerDetails passengerdetails){
+		Ticket newTicket = service.bookTicket(passengerdetails);
+		return  new ResponseEntity<Ticket>(newTicket,HttpStatus.CREATED);
+	}
 
     /**
      * Modfies one ticket, based on id (pnr).

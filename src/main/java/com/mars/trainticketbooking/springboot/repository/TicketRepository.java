@@ -7,6 +7,6 @@ import com.mars.trainticketbooking.springboot.entity.Ticket;
 /**
  * @author Madhu
  */
-public interface PassengerDetailsRepository extends JpaRepository<Ticket, String> {
+public interface TicketRepository extends JpaRepository<Ticket, String> {
 
 }
