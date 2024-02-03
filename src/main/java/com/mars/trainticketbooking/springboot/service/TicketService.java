@@ -23,5 +23,7 @@ public interface TicketService {
      */
     Ticket putTicketByPnr(Ticket ticket, String pnr);
 	Ticket bookTicket(PassengerDetails passengerdetails);
+	void cancelTicket(String pnr);
+	
 
 }
