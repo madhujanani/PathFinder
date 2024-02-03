@@ -94,5 +94,14 @@ public class TicketServiceImpl implements TicketService {
         return repository.save(ticketToUpdate);
     }
 
+    /**
+     * @author Ankita
+     */
+
+	@Override
+	public void cancelTicket(String pnr) {
+		repository.deleteById(pnr);		
+	}
+
 	
 }
