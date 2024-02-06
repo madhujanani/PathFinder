@@ -15,7 +15,7 @@ import com.mars.trainticketbooking.springboot.repository.PassengerDetailsReposit
 public class TicketServiceImpl implements TicketService {
 
     @Autowired
-    PassengerDetailsRepository repository;
+    private PassengerDetailsRepository repository;
 
     @Override
     public List<PassengerDetails> getpassengers() {
