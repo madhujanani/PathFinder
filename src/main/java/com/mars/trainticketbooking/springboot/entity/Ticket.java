@@ -6,8 +6,11 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.mars.trainticketbooking.springboot.constant.BookingStatus;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,15 +23,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Data
-public class PassengerDetails {
+public class Ticket {
 
     @Id
-    private String pnr = UUID
-            .randomUUID()
-            .toString()
-            .replace("-", "")
-            .toUpperCase()
-            .substring(0,7);
+    private String pnr;
 
     private String passengerName;
     private String fromStation;
@@ -44,8 +42,12 @@ public class PassengerDetails {
 
     private LocalDate dateOfBooking = java.time.LocalDate.now();
 
-    private String bookingStatus = new Random().nextBoolean() ? "confirmed" : "waiting";
-
+    /**
+     * @author Sai
+     *
+     */
+    @Enumerated(EnumType.STRING)
+    private BookingStatus bookingStatus;
     private double ticketFare = Math.floor(Math.random() * 31) + 50;
 
     // We need a constructor that can requires only the fields present in a POST or
@@ -57,7 +59,7 @@ public class PassengerDetails {
      * @param dateOfTravel
      * @param trainNo
      */
-    public PassengerDetails(String passengerName, String fromStation, 
+    public Ticket(String passengerName, String fromStation, 
             String toStation, Date dateOfTravel, String trainNo) 
     {
         super();
