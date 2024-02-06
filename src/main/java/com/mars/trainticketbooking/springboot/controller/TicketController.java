@@ -61,6 +61,23 @@ public class TicketController {
 		service.cancelTicket(pnr);
 		return new ResponseEntity<Ticket>(HttpStatus.OK);
 	}
+	
+	/**
+	 * Search ticket by id (pnr)
+	 * 
+	 * @Author Brian
+	 * @param ticket
+	 * @param pnr
+	 * @return ResponseEntity
+	 */
+	@GetMapping("/search/{pnr}")
+	public ResponseEntity<Ticket> getTicket(@RequestBody Ticket ticket, @PathVariable(name = "pnr") String pnr)
+
+	{
+		Ticket searchedTicket = service.getTicketByPnr(ticket, pnr);
+		return new ResponseEntity<>(searchedTicket, HttpStatus.OK);
+
+	}
 
 
 }
