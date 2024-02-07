@@ -2,8 +2,6 @@ package com.mars.trainticketbooking.springboot.entity;
 
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.Random;
-import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mars.trainticketbooking.springboot.constant.BookingStatus;
