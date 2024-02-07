@@ -22,6 +22,13 @@ public interface TicketService {
      * @return PassengerDetails
      */
     Ticket putTicketByPnr(Ticket ticket, String pnr);
+    
+    /**
+     * @param pnr
+     * @return Ticket
+     */
+    public Ticket putTicketConfirmedByPnr(String pnr);
+    
 	Ticket bookTicket(PassengerDetails passengerdetails);
 	void cancelTicket(String pnr);
 	
