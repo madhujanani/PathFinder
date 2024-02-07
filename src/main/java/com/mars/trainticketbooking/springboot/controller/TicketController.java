@@ -42,11 +42,25 @@ public class TicketController {
      * @param pnr
      * @return ResponseEntity
      */
-    @PutMapping("/{pnr}")
+    @PutMapping("/update/{pnr}")
     public ResponseEntity<Ticket> putTicket(
-            @RequestBody Ticket ticket, @PathVariable(name = "pnr") String pnr)
+            @RequestBody Ticket ticket, String pnr)
     {
         Ticket updatedTicket = service.putTicketByPnr(ticket, pnr);
+        return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
+    }
+    
+    /**
+     * updates a ticket's status from "pending" to "confirmed"
+     * e.g. a button on the Frontend is clicked to "confirm" the ticket
+     * @author Tom
+     * @param ticket
+     * @param pnr
+     * @return ResponseEntity<Ticket>
+     */
+    @PutMapping("/confirm/{pnr}")
+    public ResponseEntity<Ticket> putTicketConfirmedByPnr(@PathVariable String pnr) {
+        Ticket updatedTicket = service.putTicketConfirmedByPnr(pnr);
         return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
     }
     
