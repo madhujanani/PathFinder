@@ -91,18 +91,18 @@ public class TicketServiceImpl implements TicketService {
 
 		return repository.save(ticketToUpdate);
 	}
-	
-    @Override
-    public Ticket putTicketConfirmedByPnr(String pnr) {
-        Optional<Ticket> preUpdateTicket = repository.findById(pnr);
-        
-        if (preUpdateTicket.isPresent()) {
-            Ticket postUpdateTicket = preUpdateTicket.get();
-            postUpdateTicket.setBookingStatus(BookingStatus.CONFIRMED);
-            return repository.save(postUpdateTicket);
-        }
-        return null;
-    }
+
+	@Override
+	public Ticket putTicketConfirmedByPnr(String pnr) {
+		Optional<Ticket> preUpdateTicket = repository.findById(pnr);
+
+		if (preUpdateTicket.isPresent()) {
+			Ticket postUpdateTicket = preUpdateTicket.get();
+			postUpdateTicket.setBookingStatus(BookingStatus.CONFIRMED);
+			return repository.save(postUpdateTicket);
+		}
+		return null;
+	}
 
 	/**
 	 * @author Ankita
