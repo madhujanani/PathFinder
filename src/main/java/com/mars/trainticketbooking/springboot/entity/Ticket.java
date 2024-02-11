@@ -12,6 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
  * @author Madhu, Tom
  * 
  */
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Data
@@ -40,7 +41,7 @@ public class Ticket {
 
     private String trainNo;
 
-    private LocalDate dateOfBooking = java.time.LocalDate.now();
+    private LocalDate dateOfBooking;
 
     /**
      * @author Sai
@@ -48,7 +49,7 @@ public class Ticket {
      */
     @Enumerated(EnumType.STRING)
     private BookingStatus bookingStatus;
-    private double ticketFare = Math.floor(Math.random() * 31) + 50;
+    private double ticketFare ;
 
     // We need a constructor that can requires only the fields present in a POST or
     // PUT request... an AllArgsConstructor won't work
@@ -59,15 +60,15 @@ public class Ticket {
      * @param dateOfTravel
      * @param trainNo
      */
-    public Ticket(String passengerName, String fromStation, 
-            String toStation, Date dateOfTravel, String trainNo) 
-    {
-        super();
-        this.passengerName = passengerName;
-        this.fromStation = fromStation;
-        this.toStation = toStation;
-        this.dateOfTravel = dateOfTravel;
-        this.trainNo = trainNo;
-    }
+//    public Ticket(String passengerName, String fromStation, 
+//            String toStation, Date dateOfTravel, String trainNo) 
+//    {
+//        super();
+//        this.passengerName = passengerName;
+//        this.fromStation = fromStation;
+//        this.toStation = toStation;
+//        this.dateOfTravel = dateOfTravel;
+//        this.trainNo = trainNo;
+//    }
 
 }

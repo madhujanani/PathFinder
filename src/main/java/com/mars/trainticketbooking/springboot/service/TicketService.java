@@ -12,7 +12,7 @@ public interface TicketService {
     /**
      * @return List
      */
-    List<Ticket> getpassengers();
+   
 
     /**
      * Modfies one ticket, based on id (pnr)
@@ -24,6 +24,12 @@ public interface TicketService {
     Ticket putTicketByPnr(Ticket ticket, String pnr);
 	Ticket bookTicket(PassengerDetails passengerdetails);
 	void cancelTicket(String pnr);
+	
+	
+	List<Ticket> getpassengers();
+	Ticket getPassengerByPnr(String id);
+
+	
 	
 
 }

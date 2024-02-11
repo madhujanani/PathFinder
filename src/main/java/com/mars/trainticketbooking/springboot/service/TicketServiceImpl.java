@@ -1,6 +1,7 @@
 package com.mars.trainticketbooking.springboot.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
@@ -65,17 +66,7 @@ public class TicketServiceImpl implements TicketService {
 	 
 			// return the ticket
 			return ticket;
-		}
-		
-		
-		
-		
-
-    @Override
-    public List<Ticket> getpassengers() {
-        return repository.findAll();
-    }
-
+		}	
     /**
      * @author Tom
      */
@@ -94,14 +85,37 @@ public class TicketServiceImpl implements TicketService {
         return repository.save(ticketToUpdate);
     }
 
-    /**
-     * @author Ankita
-     */
+    
 
 	@Override
 	public void cancelTicket(String pnr) {
 		repository.deleteById(pnr);		
-	}
+	}	
+	
+	@Override
+    public List<Ticket> getpassengers() {
+        return repository.findAll();
+    }
+
+	@Override
+	public Ticket getPassengerByPnr(String id) {
+		// TODO Auto-generated method stub
+			Optional<Ticket> findById = repository.findById(id);
+			if (findById.isPresent()) {
+				return findById.get();
+			} else {
+				return null;
+			}
+}
+
+
+	
+
+	
+
+
+
+	
 
 	
 }
