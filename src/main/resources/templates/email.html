@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>BookIt Communications</title>
+</head>
+<body>
+	<h2>Thank you for using BookIt!</h2>
+	<div>
+		<div>You have booked the following ticket:
+			<ul>
+				<li>PNR: <span th:text=${pnr}>Unavailable</span></li>
+				<li>Traveling on: <span th:text=${travelDate}>Unavailable</span></li>
+				<li>Fare: <span th:text=${fare}>Unavailable</span></li>
+			</ul>
+		</div>
+		<div>
+			<a th:href="@{'http://localhost:5173/tickets/' + ${pnr}}">
+				Click to view your ticket!
+			</a>
+		</div>
+	</div>
+</body>
+</html>
