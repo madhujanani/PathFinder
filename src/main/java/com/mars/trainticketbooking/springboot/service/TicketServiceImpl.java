@@ -92,6 +92,9 @@ public class TicketServiceImpl implements TicketService {
 		return repository.save(ticketToUpdate);
 	}
 
+	/**
+	 * @author Tom
+	 */
 	@Override
 	public Ticket putTicketConfirmedByPnr(String pnr) {
 		Optional<Ticket> preUpdateTicket = repository.findById(pnr);
