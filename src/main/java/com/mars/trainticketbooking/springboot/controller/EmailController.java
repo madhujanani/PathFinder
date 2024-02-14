@@ -18,27 +18,27 @@ import com.mars.trainticketbooking.springboot.service.EmailService;
 @RequestMapping("/api/email")
 public class EmailController {
 
-	private final EmailService service;
+  private final EmailService service;
 
-	@Autowired
-	public EmailController(EmailService service) {
-		this.service = service;
-	}
+  @Autowired
+  public EmailController(EmailService service) {
+    this.service = service;
+  }
 
-	@PostMapping("/send-simple")
-	public String sendSimpleEmail(@RequestBody SimpleEmailRequest email) {
-		service.sendSimpleEmail(email);
-		return "Success: simple email sent!";
-	}
-	
-	@PostMapping("/send-html")
-	public String sendHtmlEmail(@RequestBody HtmlEmailRequest email) {
-		Context context = new Context();
-		context.setVariable("pnr", email.getPnr());
-		context.setVariable("travelDate", email.getTravelDate());
-		context.setVariable("fare", email.getFare());
+  @PostMapping("/send-simple")
+  public String sendSimpleEmail(@RequestBody SimpleEmailRequest email) {
+    service.sendSimpleEmail(email);
+    return "Success: simple email sent!";
+  }
 
-		service.sendHtmlEmail(email, "email", context);
-		return "Success: HTML email sent!";
-	}
+  @PostMapping("/send-html")
+  public String sendHtmlEmail(@RequestBody HtmlEmailRequest email) {
+    Context context = new Context();
+    context.setVariable("pnr", email.getPnr());
+    context.setVariable("travelDate", email.getTravelDate());
+    context.setVariable("fare", email.getFare());
+
+    service.sendHtmlEmail(email, "email", context);
+    return "Success: HTML email sent!";
+  }
 }

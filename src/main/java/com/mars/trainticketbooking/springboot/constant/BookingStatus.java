@@ -6,17 +6,17 @@ package com.mars.trainticketbooking.springboot.constant;
  */
 public enum BookingStatus {
 
-	
-	 /**
-	 *
-	 */
-	CONFIRMED,
-	    /**
-	     *
-	     */
-	    WAITING,
-	    /**
-	     *
-	     */
-	    CANCELLED
+
+  /**
+   *
+   */
+  CONFIRMED,
+      /**
+       *
+       */
+      WAITING,
+      /**
+       *
+       */
+      CANCELLED
 }

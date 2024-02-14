@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=false)
 public class HtmlEmailRequest extends SimpleEmailRequest {
-	
-	private String pnr;
-	private LocalDate travelDate;
-	private double fare;
+  
+  private String pnr;
+  private LocalDate travelDate;
+  private double fare;
 }

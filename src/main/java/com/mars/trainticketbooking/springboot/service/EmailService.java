@@ -10,15 +10,15 @@ import com.mars.trainticketbooking.springboot.model.SimpleEmailRequest;
  */
 public interface EmailService {
 
-	/**
-	 * @param details
-	 */
-	public void sendSimpleEmail(SimpleEmailRequest details);
-	
-	/**
-	 * @param details
-	 * @param templateName
-	 * @param context
-	 */
-	public void sendHtmlEmail(HtmlEmailRequest details, String templateName, Context context);
+  /**
+   * @param details
+   */
+  public void sendSimpleEmail(SimpleEmailRequest details);
+
+  /**
+   * @param details
+   * @param templateName
+   * @param context
+   */
+  public void sendHtmlEmail(HtmlEmailRequest details, String templateName, Context context);
 }

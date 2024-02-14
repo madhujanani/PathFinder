@@ -24,14 +24,14 @@ import com.mars.trainticketbooking.springboot.service.TicketService;
 public class TicketController {
 
     @Autowired
-    TicketService service;   
-    
-    
+    TicketService service;
+
+
     @PostMapping("/bookticket")
     public ResponseEntity<Ticket> bookticket( @RequestBody PassengerDetails passengerdetails){
-		Ticket newTicket = service.bookTicket(passengerdetails);
-		return  new ResponseEntity<Ticket>(newTicket,HttpStatus.CREATED);
-	}
+        Ticket newTicket = service.bookTicket(passengerdetails);
+        return  new ResponseEntity<Ticket>(newTicket,HttpStatus.CREATED);
+    }
 
     /**
      * Modfies one ticket, based on id (pnr).
@@ -50,7 +50,7 @@ public class TicketController {
         Ticket updatedTicket = service.putTicketByPnr(ticket, pnr);
         return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
     }
-    
+
     /**
      * updates a ticket's status from "pending" to "confirmed"
      * e.g. a button on the Frontend is clicked to "confirm" the ticket
@@ -64,35 +64,35 @@ public class TicketController {
         Ticket updatedTicket = service.putTicketConfirmedByPnr(pnr);
         return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
     }
-    
+
     /**
-	 * Cancel one ticket, based on (pnr)
-	 * 
-	 * @author Ankita
-	 * @param pnr
-	 */
-	@DeleteMapping("cancelticket/{pnr}")
-	public ResponseEntity<Ticket> ticketCancellation(@PathVariable String pnr) {
-		service.cancelTicket(pnr);
-		return new ResponseEntity<Ticket>(HttpStatus.OK);
-	}
-	
-	/**
-	 * Search ticket by id (pnr)
-	 * 
-	 * @Author Brian
-	 * @param ticket
-	 * @param pnr
-	 * @return ResponseEntity
-	 */
-//	@GetMapping("/search/{pnr}")
-//	public ResponseEntity<Ticket> getTicket(@RequestBody Ticket ticket, @PathVariable(name = "pnr") String pnr)
+    * Cancel one ticket, based on (pnr)
+    *
+    * @author Ankita
+    * @param pnr
+    */
+    @DeleteMapping("cancelticket/{pnr}")
+    public ResponseEntity<Ticket> ticketCancellation(@PathVariable String pnr) {
+        service.cancelTicket(pnr);
+        return new ResponseEntity<Ticket>(HttpStatus.OK);
+    }
+
+    /**
+    * Search ticket by id (pnr)
+    *
+    * @Author Brian
+    * @param ticket
+    * @param pnr
+    * @return ResponseEntity
+    */
+//    @GetMapping("/search/{pnr}")
+//    public ResponseEntity<Ticket> getTicket(@RequestBody Ticket ticket, @PathVariable(name = "pnr") String pnr)
 //
-//	{
-//		Ticket searchedTicket = service.getTicketByPnr(ticket, pnr);
-//		return new ResponseEntity<>(searchedTicket, HttpStatus.OK);
+//    {
+//        Ticket searchedTicket = service.getTicketByPnr(ticket, pnr);
+//        return new ResponseEntity<>(searchedTicket, HttpStatus.OK);
 //
-//	}
+//    }
 
 
 }

@@ -13,14 +13,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class TrainTicketBookingApplication {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		SpringApplication.run(TrainTicketBookingApplication.class, args);
-	}
-	
-	/**
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(TrainTicketBookingApplication.class, args);
+    }
+    
+    /**
      * @return WebMvcConfigurer
      */
     @Bean
