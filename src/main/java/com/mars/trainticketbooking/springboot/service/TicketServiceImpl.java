@@ -57,6 +57,7 @@ public class TicketServiceImpl implements TicketService {
 		}
 
 		Ticket ticket = new Ticket();
+		ticket.setEmail(passengerdetails.getEmail());
 		ticket.setPassengerName(passengerdetails.getPassengerName());
 		ticket.setToStation(passengerdetails.getToStation());
 		ticket.setFromStation(passengerdetails.getFromStation());
