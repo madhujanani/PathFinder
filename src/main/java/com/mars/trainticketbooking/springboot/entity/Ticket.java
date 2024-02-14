@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Madhu, Tom
- * 
+ *
  */
 
 @NoArgsConstructor
@@ -26,6 +26,7 @@ public class Ticket {
     @Id
     private String pnr;
 
+    private String email;
     private String passengerName;
     private String fromStation;
     private String toStation;
@@ -57,8 +58,8 @@ public class Ticket {
      * @param dateOfTravel
      * @param trainNo
      */
-    public Ticket(String passengerName, String fromStation, 
-            String toStation, Date dateOfTravel, String trainNo) 
+    public Ticket(String passengerName, String fromStation,
+            String toStation, Date dateOfTravel, String trainNo)
     {
         super();
         this.passengerName = passengerName;
